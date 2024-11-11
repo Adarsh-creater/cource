@@ -1,5 +1,6 @@
 import { Star } from 'lucide-react';
 import React from 'react';
+import { Link } from "react-router-dom";
 import complg from '../assets/image/company-logo.png'
 import c1 from '../assets/image/c-1.jpg'
 import c2 from '../assets/image/c-2.jpeg'
@@ -7,28 +8,31 @@ import c3 from '../assets/image/c-3.png'
 
 function CourseCard({ course }) {
   return (
-    <div className="bg-white shadow-md rounded-lg overflow-hidden w-80 transform transition duration-300 hover:scale-105">
-      <img src={course.image} alt={course.title} className="w-full h-40 object-cover" />
-      <div className="p-4">
-        <div className="flex items-center space-x-2">
-          <img src={course.institutionLogo} alt={course.institution} className="w-6 h-6 rounded-full" />
-          <p className="text-gray-700 font-medium">{course.institution}</p>
+    <a href={course.link} target="_blank" rel="noopener noreferrer">
+
+      <div className="bg-white shadow-md rounded-lg overflow-hidden w-80 transform transition duration-300 hover:scale-105">
+        <img src={course.image} alt={course.title} className="w-full h-40 object-cover" />
+        <div className="p-4">
+          <div className="flex items-center space-x-2">
+            <img src={course.institutionLogo} alt={course.institution} className="w-6 h-6 rounded-full" />
+            <p className="text-gray-700 font-medium">{course.institution}</p>
+          </div>
+          <h3 className="text-lg font-semibold mt-2">{course.title}</h3>
+          <p className="text-gray-600 text-sm mt-1">Skills you'll gain: {course.skills}</p>
+          <div className="flex items-center my-3 text-yellow-500">
+            <Star />
+            <p className="ml-1 font-semibold">{course.rating}</p>
+            <p className="ml-1 text-gray-500">• {course.reviews} reviews</p>
+          </div>
+          <ul className="text-gray-500 text-sm  ">
+            <li>• {course.level}</li>
+            <li>• {course.type}</li>
+            <li>• {course.duration}</li>
+            <li>• {course.fee}</li>
+          </ul>
         </div>
-        <h3 className="text-lg font-semibold mt-2">{course.title}</h3>
-        <p className="text-gray-600 text-sm mt-1">Skills you'll gain: {course.skills}</p>
-        <div className="flex items-center my-3 text-yellow-500">
-          <Star />
-          <p className="ml-1 font-semibold">{course.rating}</p>
-          <p className="ml-1 text-gray-500">• {course.reviews} reviews</p>
-        </div>
-        <ul className="text-gray-500 text-sm  ">  
-          <li>• {course.level}</li>
-          <li>• {course.type}</li>
-          <li>• {course.duration}</li>
-          <li>• {course.fee}</li>
-        </ul>
       </div>
-    </div>
+    </a>
   );
 }
 
@@ -45,7 +49,8 @@ function CourseList() {
       level: 'Beginner',
       type: 'Specialization',
       duration: '3 - 6 Months',
-      fee:'free',
+      fee: 'free',
+      link: 'https://www.freecodecamp.org/learn/2022/responsive-web-design/'
     },
     {
       image: c2,
@@ -58,7 +63,8 @@ function CourseList() {
       level: 'Intermediate',
       type: 'Guided Project',
       duration: 'Less Than 2 Hours',
-      fee:'paid'
+      fee: 'paid',
+      link: 'https://www.freecodecamp.org/learn/2022/responsive-web-design/'
     },
     {
       image: c3,
@@ -71,7 +77,8 @@ function CourseList() {
       level: 'Beginner',
       type: 'Course',
       duration: '1 - 4 Weeks',
-      fee:'free',
+      fee: 'free',
+      link: 'https://www.freecodecamp.org/learn/2022/responsive-web-design/'
     },
     {
       image: c3,
@@ -84,7 +91,8 @@ function CourseList() {
       level: 'Advanced',
       type: 'Course',
       duration: '6 - 8 Weeks',
-      fee:'free',
+      fee: 'free',
+      link: 'https://www.freecodecamp.org/learn/2022/responsive-web-design/',
     },
     {
       image: c2,
@@ -97,7 +105,8 @@ function CourseList() {
       level: 'Intermediate',
       type: 'Specialization',
       duration: '2 - 4 Months',
-      fee:'free',
+      fee: 'free',
+      link: 'https://www.freecodecamp.org/learn/2022/responsive-web-design/',
     },
     {
       image: c1,
@@ -110,9 +119,10 @@ function CourseList() {
       level: 'Beginner',
       type: 'Course',
       duration: '8 - 10 Weeks',
-      fee:'paid',
+      fee: 'paid',
+      link: 'https://www.freecodecamp.org/learn/2022/responsive-web-design/',
     }
-    
+
   ];
 
   return (
